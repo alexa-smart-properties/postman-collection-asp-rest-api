@@ -1,11 +1,11 @@
-# Postman Collections for Alexa Smart Properties APIs 
+# Postman Collection for Alexa Smart Properties APIs 
 
-This repository offers a single [*Postman Collection*](https://learning.postman.com/docs/collections/collections-overview) across all Alexa Smart Properties Subscription to ease Developers with testing API calls from an already exiting REST Client. It can be used to troubleshoot API calls when coding to ensure format and payload are correct and can also be used as a standalone tool for getting and setting values on properties, units and settings 
+This repository offers a single [*Postman Collection*](https://learning.postman.com/docs/collections/collections-overview) across all Alexa Smart Properties Subscriptions and Regions to ease Developers with testing API calls from an already exiting REST Client. It can be used to troubleshoot API calls when coding to ensure format and payload are correct and can also be used as a standalone tool for getting and setting values on properties, units and settings 
 
 ---
 
 # Prerequisites
-You shall have a valid [Alexa Smart Properties Registration](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-core-get-started.html) with at least one subscription enabled.
+You need to have a valid [Alexa Smart Properties Registration](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-core-get-started.html) with at least one subscription enabled.
 
 ---
 
@@ -45,6 +45,8 @@ Follow the instructions from the Postman Getting Started guide available here: h
 > By the end of this Step, you would have imported Postman Collection into your Postman app (desktop or web).
 
 The different options to import data into Postman are documented here: https://learning.postman.com/docs/getting-started/importing-and-exporting-data.
+
+Use the json file included in this repo as the collection you want to import.
 
 Below you can find an illustration to import a Postman Collection from a file available on your filesystem into Postman Desktop App.
 
