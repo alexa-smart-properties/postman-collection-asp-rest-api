@@ -21,7 +21,7 @@ Follow the instructions from the Postman Getting Started guide available here: h
 
 ## Step 2: LWA Security Profile Configuration
 
-> By the end of this Step, you would have defined a LWA Security Profile ready for ASP APIs calling.
+> By the end of this Step, you would have defined a LWA Security Profile enabling calls to the ASP APIs using the LWA clientId and secret.
 
 1. Create a LWA Security Profile by following the steps in the [LWA console](https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html), using the *same* Amazon Business account and email address that you registered with Alexa Smart Properties.
 
@@ -31,7 +31,7 @@ Follow the instructions from the Postman Getting Started guide available here: h
 2. Define **Allowed Return URLS** on the [Web Settings](https://developer.amazon.com/docs/login-with-amazon/register-web.html#add-your-website-to-your-security-profile) of your *LWA Security Profile* to use [Postman to obtain an OAuth 2.0 token](https://learning.postman.com/docs/sending-requests/authorization/oauth-20/#requesting-an-oauth-20-token):
 
 - https://oauth.pstmn.io/v1/browser-callback (for Postman Web App Usage)
-- https://oauth.pstmn.io/v1/callback (For Postamn Desktop App Usage)
+- https://oauth.pstmn.io/v1/callback (For Postman Desktop App Usage)
 - https://www.getpostman.com/oauth2/callback (for Postman Legacy Usage)
 - https://www.postman.com/oauth2/callback (for Postman Legacy Usage)
 - http://127.0.0.1:9090/cb (for Localhost Usage)
