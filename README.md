@@ -36,7 +36,7 @@ Follow the instructions from the Postman Getting Started guide available here: h
 - https://www.postman.com/oauth2/callback (for Postman Legacy Usage)
 - http://127.0.0.1:9090/cb (for Localhost Usage)
 
-3. Grant ASP APIs access to your LWA Client ID from the ASP Console Administration: [US Console](https://www.amazon.com/alexasmartproperties/newconsole/administration/) || [CA Console](https://www.amazon.ca/alexasmartproperties/newconsole/administration/) || [UK Console](https://www.amazon.co.uk/alexasmartproperties/newconsole/administration/) || [FR Console](https://www.amazon.fr/alexasmartproperties/newconsole/administration/) || [DE Console](https://www.amazon.de/alexasmartproperties/newconsole/administration/) || [IT Console](https://www.amazon.it/alexasmartproperties/newconsole/administration/). Once your LWA Client ID would have been registered for API access, you would be able to obtain your ASP Organization identifier (`amzn1.alexa.unit.did.{id}`).
+3. Grant ASP APIs access to your LWA Client ID from the ASP Console Administration: [US Console](https://www.amazon.com/alexasmartproperties/newconsole/administration/) || [CA Console](https://www.amazon.ca/alexasmartproperties/newconsole/administration/) || [UK Console](https://www.amazon.co.uk/alexasmartproperties/newconsole/administration/) || [FR Console](https://www.amazon.fr/alexasmartproperties/newconsole/administration/) || [DE Console](https://www.amazon.de/alexasmartproperties/newconsole/administration/) || [IT Console](https://www.amazon.it/alexasmartproperties/newconsole/administration/) ||  [ES Console](https://www.amazon.es/alexasmartproperties/newconsole/administration/). Once your LWA Client ID would have been registered for API access, you would be able to obtain your ASP Organization identifier (`amzn1.alexa.unit.did.{id}`).
 
 ---
 
@@ -68,7 +68,7 @@ To be more flexible and reuse the same values accross multiple requests, [Variab
 | Scope | `alexa::enterprise:management` `credential_locker::wifi_management` `profile:user_id` |
 | OrgId | *The `amzn1.alexa.unit.did.{id}` you got once you have granted API access to your LWA Client ID from the ASP Console*  |
 
-**!!! Important !!!** each time you update the value of a variable, you must **save** the changes. Otherwise, the new value won't be taken into account.
+**!!! Important !!!** each time you update the value of a variable, you must **save** the changes. Otherwise, the new value won't be taken into account. Also, please note that if you change the LWA Scopes after generating a token, you will need to perform Step 5 below again.
 
 For your information, the permission provided by each scope is detailed here: 
 - `alexa::enterprise:management`: permission to get access to Alexa Management APIs. This basically covers APIs offers into all Alexa Smart Properties Subscriptions.
@@ -125,8 +125,6 @@ All you have to do here is to obtain a Refresh Token directly from the Collectio
 
 > By the end of this Step, you would have validated that you can successfully perform API calls using this Postman Collection.
 
-<-- #TODO finish how to test-->
-
 To ensure your Postman Collection is correctly configured, you can try the three below API calls and observe the typical expected output.
 
 ### **Test #1: List devices from your Amazon Account**
@@ -137,7 +135,7 @@ To ensure your Postman Collection is correctly configured, you can try the three
 
 ![API Call to list properties - Unit Level 1 - from an ASP Organization](./images/ASP_API_List_Properties_in_Organization.png)
 
-## **Test #3: Obtain your Amazon Account User ID**
+### **Test #3: Obtain your Amazon Account User ID**
 
 ![API Call to get the Principal ID of an Amazon Account](./images/LWA_API_Get_Principal_ID.png)
 
@@ -147,7 +145,7 @@ To ensure your Postman Collection is correctly configured, you can try the three
 
 | Service | North America Region | Europe Region |
 | ----------- | ----------- | ----------- |
-| Countries | US, CA | UK, FR, DE, IT |
+| Countries | US, CA | UK, FR, DE, IT, ES |
 | LWA| api.amazon.com | api.amazon.com |
 | Alexa| api.amazonalexa.com | api.eu.amazonalexa.com |
 | Credentials Locker| credential-locker-service.amazon.com | credential-locker-service.amazon.eu |
