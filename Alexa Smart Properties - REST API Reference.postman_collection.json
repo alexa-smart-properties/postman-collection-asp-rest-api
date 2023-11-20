@@ -2093,7 +2093,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://{{Host}}/v2/endpoints/{endpointId}/settings/address",
+									"raw": "https://{{Host}}/v2/endpoints/{{endpointId}}/settings/address",
 									"protocol": "https",
 									"host": [
 										"{{Host}}"
@@ -2101,7 +2101,7 @@
 									"path": [
 										"v2",
 										"endpoints",
-										"{endpointId}",
+										"{{endpointId}}",
 										"settings",
 										"address"
 									]
