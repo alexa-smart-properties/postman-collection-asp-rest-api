@@ -4068,7 +4068,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"query\": {\n \"and\": [\n {\n \"or\": [\n {\n \"match\": {\n \"recipients.type\": \"amzn1.alexa.unit.did.{unitId1}\"\n }\n },\n {\n \"match\": {\n \"recipients.type\": \"amzn1.alexa.unit.did.{unitId2}\"\n }\n }\n ]\n },\n {\n \"match\": {\n \"recipients.type\": \"Unit\"\n }\n },\n {\n \"match\": {\n \"notification.variants.type\": \"PersistentVisualAlert\"\n }\n }\n ]\n },\n \"paginationContext\": {\n }\n }",
+							"raw": "{\n \"query\": {\n \"and\": [\n {\n \"or\": [\n {\n \"match\": {\n \"recipients.id\": \"amzn1.alexa.unit.did.{unitId1}\"\n }\n },\n {\n \"match\": {\n \"recipients.id\": \"amzn1.alexa.unit.did.{unitId2}\"\n }\n }\n ]\n },\n {\n \"match\": {\n \"recipients.type\": \"Unit\"\n }\n },\n {\n \"match\": {\n \"notification.variants.type\": \"PersistentVisualAlert\"\n }\n }\n ]\n },\n \"paginationContext\": {\n }\n }",
 							"options": {
 								"raw": {
 									"language": "json"
