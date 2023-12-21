@@ -3700,7 +3700,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"wifiConfigurations\": [{\n        \"credentialConfiguration\": {\n            \"privateSharedKey\": \"\\\"{{WifiPassword}}\\\"\"\n        },\n        \"ssid\": \"\\\"{{WifiSSID}}\\\"\",\n        \"keyManagement\": \"WPAPSK\"\n    }]\n}",
+							"raw": "{\n    \"wifiConfigurations\": [{\n        \"credentialConfiguration\": {\n            \"privateSharedKey\": \"\\\"{{WifiPassword}}\\\"\"\n        },\n        \"ssid\": \"\\\"{{WifiSsid}}\\\"\",\n        \"keyManagement\": \"WPAPSK\"\n    }]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3730,7 +3730,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payload\": {\n        \"wifiConfigurations\": [{\n            \"ssid\": \"\\\"{{WifiSSID}}\\\"\",\n            \"keyManagement\": \"WPAPSK\"\n        }]\n    }\n}",
+							"raw": "{\n    \"payload\": {\n        \"wifiConfigurations\": [{\n            \"ssid\": \"\\\"{{WifiSsid}}\\\"\",\n            \"keyManagement\": \"WPAPSK\"\n        }]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -6827,6 +6827,10 @@
 		},
 		{
 			"key": "WifiSsid",
+			"value": ""
+		},
+		{
+			"key"" "WifiPassword",
 			"value": ""
 		},
 		{
