@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "1082f64e-2660-4f19-a09a-04640f53c255",
+		"_postman_id": "56ab4878-5e4f-4a6b-bc62-12034d0477e6",
 		"name": "Alexa Smart Properties - REST API Reference",
 		"description": "## Description:\n\nThis Postman Collection describes Alexa Smart Properties APIs that you can use to build Alexa capabilities into property management applications.\n\n## How to use:\n\nFor usage instructions please see [https://github.com/alexa-smart-properties](https://github.com/alexa-smart-properties)/postman-collection-smart-properties-rest-apis",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "916448"
+		"_exporter_id": "30724507"
 	},
 	"item": [
 		{
@@ -3711,7 +3711,9 @@
 							"raw": "https://credential-locker-service.amazon.com/credentiallocker/v2/saveWifiConfigurations",
 							"protocol": "https",
 							"host": [
-								"credential-locker-service.amazon.com"
+								"credential-locker-service",
+								"amazon",
+								"com"
 							],
 							"path": [
 								"credentiallocker",
@@ -4222,6 +4224,205 @@
 							]
 						},
 						"description": "Delete Pinned Cards for multiple Unit ID\n---\n\nDelete all Persistent Visuals Alerts (Pinned Cards) associated with all the specified units.\n\n*Required Request Body Parameters:*\n- `recipients[*].type`: Type of recipient for which to delete notifications. Valid value: `Unit`.\n- `recipients[*].id`: ID of the unit for which to delete notifications. Must be in the format `\"amzn1.alexa.unit.did.{id}\"`.\n- `notificationTypes`: Type of notification to delete. Valid values: `PersistentVisualAlert` and `DeviceNotification`.\n\n\n---\n[see Online Doc](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#delete-all-notifications)"
+					},
+					"response": []
+				}
+			],
+			"description": "You can use the Alexa Notifications REST API to send notifications to your customers. You can specify either of the following notification types:\n---\n\n- **Device notification** – For headless devices like Amazon Echo Dot, this is a yellow ring and a chime sound. For multimodal devices, it's a banner and a persistent notification indicator.\n- **Announcement** – For headless and multimodal devices, this is a voice announcement. Multimodal devices also display a message on the screen.\n- **PersistentVisualAlert** – For multimodal devices only. This a persistent notification that's displayed on the screen until it expires or the guest or resident dismisses it.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reminders",
+			"item": [
+				{
+					"name": "Create a Reminder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"recipients\": [\n    {\n      \"type\": \"Endpoint\",\n      \"id\": \"{{EndpointId}}\"\n    }\n  ],\n  \"reminder\": {\n    \"trigger\": {\n      \"type\": \"SCHEDULED_ABSOLUTE\",\n      \"scheduledTime\": \"2024-06-21T16:30:00.000\",\n      \"timeZoneId\": \"America/Los_Angeles\"\n    },\n    \"alertInfo\": {\n      \"spokenInfo\": {\n        \"content\": [\n          {\n            \"locale\": \"en-US\",\n            \"text\": \"Bingo starts at five p.m.\",\n            \"ssml\": \"<speak>Bingo starts at five p.m.</speak>\"\n          }\n        ]\n      }\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}/v2/alerts/reminders",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"v2",
+								"alerts",
+								"reminders"
+							]
+						},
+						"description": "Send a voice announcement into a unit\n---\n\nSee more details about the different types of Notification [here](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#notification-types)\n\n**Note:** `notification.variants[].type` must be of type `Announcement` to send a voice announcement.\n\n---\n[see Online Doc](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#send-notifications)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Reminder",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}/v2/alerts/reminders/{{ReminderId}}",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"v2",
+								"alerts",
+								"reminders",
+								"{{ReminderId}}"
+							]
+						},
+						"description": "Send a voice announcement into a unit\n---\n\nSee more details about the different types of Notification [here](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#notification-types)\n\n**Note:** `notification.variants[].type` must be of type `Announcement` to send a voice announcement.\n\n---\n[see Online Doc](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#send-notifications)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Reminder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": {\r\n    \"type\": \"Endpoint\",\r\n    \"id\": \"{{EndpointId}}\"\r\n  },\r\n  \"reminder\": {\r\n    \"trigger\": {\r\n      \"type\": \"SCHEDULED_ABSOLUTE\",\r\n      \"timeZoneId\": \"America/Los_Angeles\",\r\n      \"recurrence\": {\r\n        \"startDateTime\": \"2024-05-10T6:00:00.000\",\r\n        \"endDateTime\": \"2024-08-10T10:00:00.000\",\r\n        \"recurrenceRules\": [\r\n          \"FREQ=MONTHLY;BYMONTHDAY=5;BYHOUR=10;INTERVAL=1;\"\r\n        ]\r\n      }\r\n    },\r\n    \"alertInfo\": {\r\n      \"spokenInfo\": {\r\n        \"content\": [\r\n          {\r\n            \"locale\": \"en-US\",\r\n            \"text\": \"Bingo starts at 5pm\",\r\n            \"ssml\": \"<speak> Bingo starts at five p.m.</speak>\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}/v2/alerts/reminders/{{ReminderId}}",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"v2",
+								"alerts",
+								"reminders",
+								"{{ReminderId}}"
+							]
+						},
+						"description": "Send a voice announcement into a unit\n---\n\nSee more details about the different types of Notification [here](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#notification-types)\n\n**Note:** `notification.variants[].type` must be of type `Announcement` to send a voice announcement.\n\n---\n[see Online Doc](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#send-notifications)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Reminder",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}/v2/alerts/reminders/{{ReminderId}}",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"v2",
+								"alerts",
+								"reminders",
+								"{{ReminderId}}"
+							]
+						},
+						"description": "Send a voice announcement into a unit\n---\n\nSee more details about the different types of Notification [here](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#notification-types)\n\n**Note:** `notification.variants[].type` must be of type `Announcement` to send a voice announcement.\n\n---\n[see Online Doc](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#send-notifications)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reminders on an Endpoint",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}/v2/alerts/reminders?recipient.id={{EndpointId}}&recipient.type=Endpoint&owner=~caller",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"v2",
+								"alerts",
+								"reminders"
+							],
+							"query": [
+								{
+									"key": "recipient.id",
+									"value": "{{EndpointId}}"
+								},
+								{
+									"key": "recipient.type",
+									"value": "Endpoint"
+								},
+								{
+									"key": "owner",
+									"value": "~caller"
+								}
+							]
+						},
+						"description": "Send a voice announcement into a unit\n---\n\nSee more details about the different types of Notification [here](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#notification-types)\n\n**Note:** `notification.variants[].type` must be of type `Announcement` to send a voice announcement.\n\n---\n[see Online Doc](https://developer.amazon.com/en-US/docs/alexa/alexa-smart-properties/asp-in-senior-living-notifications-api.html#send-notifications)"
 					},
 					"response": []
 				}
@@ -5569,13 +5770,12 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{Host}}//v1/communications/serviceProviders/{serviceProviderId}",
+											"raw": "https://{{Host}}/v1/communications/serviceProviders/{serviceProviderId}",
 											"protocol": "https",
 											"host": [
 												"{{Host}}"
 											],
 											"path": [
-												"",
 												"v1",
 												"communications",
 												"serviceProviders",
@@ -5600,13 +5800,12 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{Host}}//v1/communications/serviceProviders/{serviceProviderId}",
+											"raw": "https://{{Host}}/v1/communications/serviceProviders/{serviceProviderId}",
 											"protocol": "https",
 											"host": [
 												"{{Host}}"
 											],
 											"path": [
-												"",
 												"v1",
 												"communications",
 												"serviceProviders",
@@ -5631,13 +5830,12 @@
 											}
 										},
 										"url": {
-											"raw": "https://{{Host}}//v1/communications/serviceProviders/{serviceProviderId}",
+											"raw": "https://{{Host}}/v1/communications/serviceProviders/{serviceProviderId}",
 											"protocol": "https",
 											"host": [
 												"{{Host}}"
 											],
 											"path": [
-												"",
 												"v1",
 												"communications",
 												"serviceProviders",
@@ -6860,6 +7058,11 @@
 		{
 			"key": "ContactId",
 			"value": ""
+		},
+		{
+			"key": "ReminderId",
+			"value": "",
+			"type": "string"
 		},
 		{
 			"key": "MaxResults",
